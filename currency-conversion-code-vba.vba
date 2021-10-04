@@ -111,6 +111,8 @@ Rem the data comes from the Bank of Israel site in XML form:
     Dim t As dao.Recordset
 
     Set d = CurrentDb
+     ' the "filter new donations" is a table query on the Donations table where the Criteria for the dval_usd field is: IsNull([dval_usd])
+    ' i.e. the query contains all donations where the dval_usd field is undefined
     Set t = d.OpenRecordset("filter new donors")
  
     conversionString1 = "https://www.boi.org.il/currency.xml?rdate="
